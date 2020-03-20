@@ -9,15 +9,15 @@ module.exports = {
     addStep,
     add,
 }
-// Projects table
+// Resource table
 function find() {
-    return db('projects');
+    return db('resources');
 }
 
-// Projects Table
-function add(project) {
-    return db('projects')
-        .insert(project)
+// Resource Table
+function add(resource) {
+    return db('resources')
+        .insert(resource)
         .then(id => {
             return findById(id[0]);
         });
@@ -25,13 +25,13 @@ function add(project) {
 // *************************
 
 function findById(id) {
-    return db("projects")
+    return db("resources")
     .where({ id })
     .first();
 }
 
 function update(changes, id) {
-    return db("projects")
+    return db("resources")
     .where({ id })
     .update(changes)
     .then(() => {
@@ -65,4 +65,3 @@ function addStep(step, scheme_id) {
             return findSteps(scheme_id);
         });
 }
-

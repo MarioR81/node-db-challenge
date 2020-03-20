@@ -18,7 +18,7 @@ exports.up = function(knex) {
 
         tbl.string('description', 512);
 
-        tbl.integer('project_id', 10).unsigned().notNullable().references("id").inTable("Projects");
+        tbl.integer('project_id', 10).unsigned().notNullable().references("id").inTable("Projects").onUpdate("CASCADE");
     })
   
 
@@ -31,7 +31,7 @@ exports.up = function(knex) {
 
         tbl.boolean('completed', 10).notNullable().unique();
 
-        tbl.integer('project_id', 10).unsigned().notNullable().references("id").inTable("Projects");
+        tbl.integer('project_id', 10).unsigned().notNullable().references("id").inTable("Projects").onUpdate("CASCADE");
 
         tbl.string('notes', 512);
     })
@@ -41,9 +41,9 @@ exports.up = function(knex) {
         //double primary key
       tbl.primary(["project_id", "task_id"])
   
-      tbl.integer('project_id', 128).unsigned().notNullable().references("id").inTable("project");
+      tbl.integer('project_id', 128).unsigned().notNullable().references("id").inTable("project").onUpdate("CASCADE");
   
-      tbl.integer('task_id', 128).unsigned().notNullable().references("id").inTable("task");
+      tbl.integer('task_id', 128).unsigned().notNullable().references("id").inTable("task").onUpdate("CASCADE");
     })
 };
 
