@@ -29,7 +29,7 @@ exports.up = function(knex) {
 
         tbl.string('description', 512).notNullable();
 
-        tbl.boolean('completed', 10).notNullable().unique();
+        tbl.boolean('completed', 10).notNullable();
 
         tbl.integer('project_id', 10).unsigned().notNullable().references("id").inTable("Projects").onUpdate("CASCADE");
 
