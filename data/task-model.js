@@ -8,12 +8,8 @@ module.exports = {
     remove,
     addStep,
     add,
-    // getTasks
 }
-// Tasks table
-// function find() {
-//     return db('tasks');
-// }
+
 
 // Tasks Table
 function add(task) {
@@ -32,8 +28,7 @@ function find() {
     return db("tasks")
         .join("projects", "projects.id", "tasks.project_id")
         .select("tasks.id as Task_ID", "tasks.name as Task_Name", "projects.name as Project_Name", "projects.description as Project_Desc", "tasks.description as Task_Desc", "tasks.notes as Task_Notes",);
-        // .orderBy("projects.name");
-        // .where("tasks.project_id", id)
+        
 }
 
 

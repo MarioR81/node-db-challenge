@@ -24,16 +24,6 @@ router.post('/', (req, res) => {
     .catch (err => {
       res.status(500).json({ message: 'Failed to create new task!' });
     });
-
-    // Task.getTasks()
-    //     .then(tasks => {
-    //         res.json(tasks);
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json({ message: 'Failed to get tasks.' })
-    //     });
-
   });
 
 
@@ -52,18 +42,5 @@ router.post('/', (req, res) => {
       res.status(500).json({ message: 'Failed to get tasks!' });
     });
   });
-
-
-// router.get('/:id/task', (req, res) => {
-//     Task.getTasks()
-//         .then(tasks => {
-//             res.json(tasks);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json({ message: 'Failed to get tasks.' })
-//         });
-
-// });
 
 module.exports = router;
